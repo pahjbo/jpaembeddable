@@ -10,6 +10,7 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class DerDB extends BaseD {
    public DerDB(int b) {
+      super("fixed");
       this.b = b;
    }
 

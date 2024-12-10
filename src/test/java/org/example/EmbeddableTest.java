@@ -22,6 +22,7 @@ class EmbeddableTest {
     EntityManager em;
     DerOA deroa;
     DerOB derob;
+    DerOC deroc;
     /**
      * @throws java.lang.Exception
      */
@@ -29,8 +30,10 @@ class EmbeddableTest {
     void setUp() throws Exception {
         DerDB derba1 = new DerDB(5);
         DerDA derda1 = new DerDA("1","abase");
+        DerDC derDC = new DerDC("c","cbase","c");
         deroa = new DerOA(derda1);
         derob  = new DerOB(derba1);
+        deroc = new DerOC(derDC);
         em = setupH2Db("testing");
     }
 
@@ -40,6 +43,7 @@ class EmbeddableTest {
         em.getTransaction().begin();
         em.persist(deroa);
         em.persist(derob);
+        em.persist(deroc);
         em.getTransaction().commit();
         Integer ida = deroa.getId();
         Integer idb = derob.getId();
@@ -51,11 +55,26 @@ class EmbeddableTest {
         assertEquals("abase",deroain.derda.baseprop);
 
     }
+    @Test void testBasePropertyForC() {
+        em.getTransaction().begin();
+        em.persist(deroa);
+        em.persist(derob);
+        em.persist(deroc);
+        em.getTransaction().commit();
+        Integer idc = deroc.getId();
+        em.clear();
+        TypedQuery<DerOC> qa = em.createQuery("select o from DerOC o where o.id =:id", DerOC.class);
+        qa.setParameter("id",idc);
+        DerOC derocin = qa.getSingleResult();
+        assertEquals("cbase",derocin.getDerDC().baseprop);
+
+    }
 
     @Test void testDerivedProperty() {
         em.getTransaction().begin();
         em.persist(deroa);
         em.persist(derob);
+        em.persist(deroc);
         em.getTransaction().commit();
         Integer idb = derob.getId();
         em.clear();

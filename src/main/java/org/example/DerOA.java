@@ -13,10 +13,7 @@ public class DerOA extends BaseO{
    }
 
    @Embedded
-//   @AttributeOverrides({
-//         @AttributeOverride(name="a",column = @Column(name = "da"))
-//   })
-   public BaseD derda;
+   public DerDA derda;
 
    public DerOA() {
 
