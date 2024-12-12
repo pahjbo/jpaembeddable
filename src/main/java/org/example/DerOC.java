@@ -1,8 +1,7 @@
 package org.example;
 
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 /*
  * Created on 10/12/2024 by Paul Harrison (paul.harrison@manchester.ac.uk).
@@ -11,6 +10,9 @@ import jakarta.persistence.Entity;
 public class DerOC extends BaseO{
 
    @Embedded
+   @AttributeOverrides({
+         @AttributeOverride(name="baseprop",column = @Column(name="basep"))
+   })
    private DerDC derDC;
 
     public DerOC(DerDC derDC) {
