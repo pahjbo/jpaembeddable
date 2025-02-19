@@ -13,7 +13,7 @@ public class DerOC extends BaseO{
    @AttributeOverrides({
          @AttributeOverride(name="baseprop",column = @Column(name="basep"))
    })
-   private DerDC derDC;
+   private BaseD derDC;
 
     public DerOC(DerDC derDC) {
         this.derDC = derDC;
@@ -24,6 +24,6 @@ public class DerOC extends BaseO{
     }
 
    public DerDC getDerDC() {
-      return derDC;
+      return (DerDC) derDC;
    }
 }

@@ -13,7 +13,7 @@ public class DerOA extends BaseO{
    }
 
    @Embedded
-   public DerDA derda;
+   public BaseD derda;
 
    public DerOA() {
 

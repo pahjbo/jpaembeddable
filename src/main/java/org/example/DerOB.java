@@ -14,7 +14,7 @@ public class DerOB extends BaseO {
    }
 
    @Embedded
-   DerDB derdb;
+   BaseD derdb;
 
    public DerOB() {
 
