@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.hibernate.orm:hibernate-core:6.6.3.Final")
+    implementation("org.hibernate.orm:hibernate-core:6.6.8.Final")
 
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
