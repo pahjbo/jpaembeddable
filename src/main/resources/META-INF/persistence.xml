@@ -4,9 +4,15 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>org.example.BaseD</class>
         <class>org.example.BaseO</class>
-   <class>org.example.DerOA</class>
-   <class>org.example.DerDA</class>
-   <class>org.example.DerDB</class>
         <class>org.example.DerOB</class>
+        <class>org.example.DerOC</class>
+        <class>org.example.DerOA</class>
+        <class>org.example.DerDA</class>
+        <class>org.example.DerDB</class>
+        <class>org.example.DerDC</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+        <property name="hibernate.archive.autodetection" value="class, hbm"/>
+        </properties>
     </persistence-unit>
 </persistence>
